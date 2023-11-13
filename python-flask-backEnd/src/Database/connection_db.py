@@ -1,15 +1,13 @@
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy #Import SQLAlchemy
 from decouple import config #Package for environment variables
+
+db = SQLAlchemy()
 
 #--------------------------------------------------------------------------------------------------------
 # function that stablishes the connection with DB
 # It's used SQLAlchemy for that connection
 #--------------------------------------------------------------------------------------------------------
-def connection_db(app):
-    
+def init_app(app):
     app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:1234@localhost:5432/ForestInventory'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    
-    db = SQLAlchemy(app)
-
-    return db
+    db.init_app(app)
