@@ -1,5 +1,5 @@
 from flask import Flask #Import flask to environment
-from src.Routers import query_routers, comment_routers #Import routers
+from src.Routers import query_routers, comment_routers, bigQuery_routers #Import routers
 from src.Database.connection_db import init_app  # Import SQLAlchemy instance and init_app function
 
 #--------------------------------------------------------------------------------------------------------
@@ -17,4 +17,5 @@ init_app(app)
 #--------------------------------------------------------------------------------------------------------
 app.register_blueprint(query_routers.query, url_prefix='/query') #Model query
 app.register_blueprint(comment_routers.comment, url_prefix='/comment') #Model comment
+app.register_blueprint(bigQuery_routers.bigQuery, url_prefix='/bigQuery') #BigQuery dataset public
 

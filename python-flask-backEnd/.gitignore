@@ -5,3 +5,5 @@ __pycache__/
 *.py[cod]
 
 .pytest_cache/
+
+cosmic-signer-344116-3b7470c32d18.json
