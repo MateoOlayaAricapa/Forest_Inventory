@@ -1,0 +1,34 @@
+@import "../settingSASS/setting";
+@import "../DisplayFlexSASS/displayFlex";
+
+//Mixin that has all the styles for text type html tags
+@mixin StyleText($fontS, $fontW, $colorT){
+    font-family: $MainFont;
+    font-size: $fontS;
+    font-weight:$fontW;
+    font-style: normal;
+    margin: 0;
+    color: $colorT;
+}
+
+//Mixin that has all the styles for button type html tags
+@mixin StyleButton($wid, $hei, $rad, $colorBack, $sizeT, $weightT, $colorT, $gap){
+    width: $wid;
+    height: $hei;
+    border-radius: $rad;
+    border: none;
+    cursor: pointer;
+    background: $colorBack;
+    @include StyleText($sizeT, $weightT, $colorT);
+    @include DisplayFlex(center, center, none, $gap);
+}
+
+//Mixin that has all the styles for input type html tags
+@mixin StyleInput($wid, $hei, $sizeT, $weightT, $colorT){
+    width: $wid;
+    height: $hei;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    @include StyleText($sizeT, $weightT, $colorT);
+}

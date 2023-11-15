@@ -1,0 +1,85 @@
+@import "../../styles/DisplayFlexSASS/displayFlex";
+@import "../../styles/GeneralStylesSASS/generalStyles";
+@import "../../styles/settingSASS/setting";
+
+.homePage{
+    width: 100%;
+    height: 100vh;
+    @include DisplayFlex(center, center, none, 0);
+
+    &__information{
+        width: 100%;
+        max-width: 39em;
+        height: 60%;
+        @include DisplayFlex(center, center, column, 1.5em);
+
+        img{
+            width: 25%;
+        }
+
+        &__title{
+            width: 85%;
+            @include DisplayFlex(center, center, column, 0);
+
+            h1{
+                @include StyleText(2.188em, 600, $BlackColor);
+            }
+
+            p{
+                @include StyleText(0.875em, 400, $BlackColor);
+                text-align: center;
+            }
+        }
+
+        &__textField{
+            width: 100%;
+            @include DisplayFlex(center, center, column, 0.5em);
+
+            &__input{
+                width: 60%;
+                @include DisplayFlex(flex-start, center, column, 0.5em);
+
+                h2{
+                    @include StyleText(0.938em, 600, $BlackColor);   
+                }
+
+                &__container{
+                    width: 100%;
+                    min-height: 2.688em;
+                    border-radius: 5px;
+                    border: 2px solid $LightGrayColor;
+                    @include DisplayFlex(center, center, none, 0);
+                    
+                    input{
+                        @include StyleInput(
+                            90%,
+                            50%,
+                            0.85em,
+                            500,
+                            $BlackColor
+                        );
+                    }
+                }
+            }
+
+            p{
+                @include StyleText(0.813em, 400, $RedColor);
+                text-align: center;   
+            }
+        }
+
+        button{
+            @include StyleButton(
+                61%,
+                3em,
+                10px,
+                $GreenColor,
+                0.938em,
+                600,
+                $WhiteColor,
+                0
+            );
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+    }
+}
