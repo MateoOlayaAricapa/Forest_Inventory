@@ -5,4 +5,54 @@
 .panelFirstQuestion{
     width: 100%;
     @include DisplayFlex(center, center, column, 0);
+
+    &__visualQueryBuilder{
+        width: 100%;
+        padding: 1em 2em 1em 2em;
+        box-sizing: border-box;
+        background-color: $LightGrayColor;
+        border-radius: 10px;
+        @include DisplayFlex(flex-start, center, column, 1em);
+
+        h1{
+            @include StyleText(1em, 500, $BlackColor);
+        }
+
+        &__inputsButtons{
+            width: 100%;
+            @include DisplayFlex(center, flex-start, none, 1em);
+
+            h2{
+                @include StyleText(0.875em, 400, $BlackColor);
+            }
+
+            button{
+                @include StyleButton(
+                    8em,
+                    2.5em,
+                    10px,
+                    $GreenColor,
+                    0.938em,
+                    500,
+                    $WhiteColor,
+                    0
+                );
+                box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        &__graphics{
+            width: 100%;
+            @include DisplayFlex(center, center, none, 0);
+        }
+
+        &__explanationData{
+            width: 100%;
+            @include DisplayFlex(center, flex-start, none, 0);
+
+            p{
+                @include StyleText(0.875em, 400, $BlackColor);
+            }
+        }
+    }
 }

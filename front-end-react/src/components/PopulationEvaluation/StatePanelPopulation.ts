@@ -4,7 +4,7 @@ import { useState } from "react"
 export const InitialStatePanelPopulationEvaluation = () => {
 
     //Status indicating button selected
-    const [buttonSelect, setButtonSelect] = useState<number>(100);
+    const [buttonSelect, setButtonSelect] = useState<number>(0);
 
     //data of each question button
     const dataQuestions = [
