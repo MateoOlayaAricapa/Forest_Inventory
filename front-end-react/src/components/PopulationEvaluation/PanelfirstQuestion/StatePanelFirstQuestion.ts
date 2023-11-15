@@ -1,6 +1,7 @@
 import {useState} from "react";
 import { typeSelectYears } from "../../../TypeTypeScript/type";
 
+//Functión that initial states of the component
 export const InitialStatePanelFirstQuestion = () => {
 
     const [selectYears, setSelectYears] = useState<typeSelectYears>({
@@ -38,6 +39,7 @@ export const InitialStatePanelFirstQuestion = () => {
     
 }
 
+//Function that is executed when the button is pressed
 export const HandleChangeButton = (
     refButton: string,
     selectYears: typeSelectYears

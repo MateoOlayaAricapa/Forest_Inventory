@@ -4,7 +4,7 @@
 
 .panelFirstQuestion{
     width: 100%;
-    @include DisplayFlex(center, center, column, 0);
+    @include DisplayFlex(center, center, column, 1em);
 
     &__visualQueryBuilder{
         width: 100%;
@@ -52,6 +52,53 @@
 
             p{
                 @include StyleText(0.875em, 400, $BlackColor);
+            }
+        }
+    }
+
+    &__tableQueries{
+        width: 100%;
+        height: 20em;
+        padding: 1em 2em 1em 2em;
+        box-sizing: border-box;
+        background-color: $LightGrayColor;
+        border-radius: 10px;
+        @include DisplayFlex(flex-start, flex-start, column, 1.5em);
+
+        h1{
+            @include StyleText(1.25em, 500, $BlackColor);
+        }
+
+        &__header{
+            width: 100%;
+            padding: 0.5em;
+            box-sizing: border-box;
+            border-bottom: 1px solid $BlackColor;
+            @include DisplayFlex(center, space-between, none, 0);
+            
+            h2{
+                @include StyleText(0.813em, 500, $BlackColor);
+            }
+        }
+
+        &__cards{
+            width: 100%;
+            height: 12em;
+            overflow-y: auto;
+            @include DisplayFlex(center, flex-start, column, 1em);
+
+            &::-webkit-scrollbar {
+                width: 0.5em; 
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                background-color: $GreenColor; 
+                border-radius: 6px; 
+            }
+            
+            &::-webkit-scrollbar-track {
+                background-color: #f0f0f0;
+                border-radius: 6px; 
             }
         }
     }

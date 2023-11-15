@@ -1,0 +1,83 @@
+@import "../../../styles/DisplayFlexSASS/displayFlex";
+@import "../../../styles/GeneralStylesSASS/generalStyles";
+@import "../../../styles/settingSASS/setting";
+
+.card{
+    width: 100%;
+    @include DisplayFlex(center, flex-start, none, 0);
+
+    &__username{
+        width: 31%;
+        @include DisplayFlex(center, flex-start, none, 1em);
+
+        img{
+            width: 15%;
+        }
+
+        h1{
+            @include StyleText(0.813em, 400, $BlackColor);
+        }
+    }
+
+    &__queryName{
+        width: 32%;
+        @include DisplayFlex(center, flex-start, none, 0);
+
+        h1{
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include StyleText(0.813em, 400, $BlackColor);
+        }
+    }
+
+    &__description{
+        width: 20%;
+        @include DisplayFlex(center, flex-start, none, 0);
+
+        p{
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include StyleText(0.813em, 400, $BlackColor);
+        }
+
+    }
+
+    &__buttonsOptions{
+        width: 16%;
+        @include DisplayFlex(center, flex-end, none, 0.5em);
+
+        &__open{
+            @include StyleButton(
+                2.375em,
+                2.188em,
+                5px,
+                $GreenColor,
+                0.8em,
+                500,
+                $WhiteColor,
+                0
+            );
+
+            img{
+                width: 80%;
+            }
+        }
+
+        &__consult{
+            @include StyleButton(
+                    6.125em,
+                    2.188em,
+                    5px,
+                    $GreenColor,
+                    0.8em,
+                    400,
+                    $WhiteColor,
+                    0
+                );
+        }
+    }
+}

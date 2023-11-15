@@ -21,6 +21,7 @@ export const InitialStatePanelPopulationEvaluation = () => {
 
 }
 
+//Function that is executed when the button is pressed
 export const HandleChangeButton = (
     refButton: string
 ) =>{

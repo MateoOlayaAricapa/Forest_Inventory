@@ -4,8 +4,10 @@ import {
     HandleChangeButton 
 } from "./StatePanelFirstQuestion";
 
-import Select from "react-select"; //Importing component select
+//Importing component 
+import Select from "react-select"; 
 import BarGraphics from "./graphicD3";
+import Card from "../cardQuery/card";
 
 function PanelFirsQuestion(){
 
@@ -117,6 +119,24 @@ function PanelFirsQuestion(){
                     took a galley of type and scrambled it to make a 
                     type specimen book. It has survived
                 </p>
+            </div>
+
+        </div>
+
+        <div className="panelFirstQuestion__tableQueries">
+
+            <h1>Queries saved by other users</h1>
+
+            <div className="panelFirstQuestion__tableQueries__header">
+                <h2>Username</h2>
+                <h2>Query Name</h2>
+                <h2>Description</h2>
+                <h2>Options</h2>
+            </div>
+
+            <div className="panelFirstQuestion__tableQueries__cards">
+                <Card/>
+    
             </div>
 
         </div>
