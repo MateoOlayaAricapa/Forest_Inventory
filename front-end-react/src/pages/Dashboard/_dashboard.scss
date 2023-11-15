@@ -1,0 +1,65 @@
+@import "../../styles/DisplayFlexSASS/displayFlex";
+@import "../../styles/GeneralStylesSASS/generalStyles";
+@import "../../styles/settingSASS/setting";
+
+.dashboardPages{
+    width: 100%;
+    height: 100vh;
+    @include DisplayFlex(center, center, none, 0);
+
+    &__mainContainer{
+        width: 100%;
+        max-width: 90em;
+        height: 100%;
+        @include DisplayFlex(center, center, none, 0);
+
+        &__burgerMenu{
+            width: 25%;
+            height: 100%;
+            border: 1px solid $LightGrayColor;
+            padding: 2em;
+            box-sizing: border-box;
+            @include DisplayFlex(center, center, none, 0);
+        }
+
+        &__infoSection{
+            width: 75%;
+            height: calc(100% - 2px);
+            border-top: 1px solid $LightGrayColor;
+            border-right: 1px solid $LightGrayColor;
+            border-bottom: 1px solid $LightGrayColor;
+            @include DisplayFlex(center, flex-start, column, 0);
+
+            &__header{
+                width: 100%;
+                padding: 1em 3em 1em 3em;
+                box-sizing: border-box;
+                border-bottom: 1px solid $LightGrayColor;
+                @include DisplayFlex(center, space-between, none, 0);
+
+                h1{
+                    @include StyleText(1.125em, 400, $BlackColor);
+                }
+
+                &__photo{
+                    width: 3.313em;
+                    height: 3.313em;
+                    overflow: hidden;
+                    @include DisplayFlex(center, center, none, 0);
+
+                    img{
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            &__panelOptions{
+                width: 100%;
+                height: 100%;
+                @include DisplayFlex(center, center, none, 0);
+            }
+        }
+    }
+
+}

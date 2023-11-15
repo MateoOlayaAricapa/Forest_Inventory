@@ -1,0 +1,28 @@
+import { useState } from "react"
+
+//Functión that initial states of the component
+export const InitialStatePanelPopulationEvaluation = () => {
+
+    //Status indicating button selected
+    const [buttonSelect, setButtonSelect] = useState<number>(100);
+
+    //data of each question button
+    const dataQuestions = [
+        {name: "Question 1", ref: "question1"},
+        {name: "Question 2", ref: "question2"}
+    ]
+
+    //Returning values
+    return {
+        buttonSelect,
+        setButtonSelect,
+        dataQuestions
+    }
+
+}
+
+export const HandleChangeButton = (
+    refButton: string
+) =>{
+
+}

@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 //Importing pages components
-import HomePage from './pages/HomaPage/home_page'; 
+import HomePage from './pages/HomaPage/home_page';
+import DashboardPages from './pages/Dashboard/dashboard_pages'; 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,7 +21,7 @@ root.render(
           <Routes>
 
               <Route path='/' element={<HomePage/>}/>
-              <Route path='/pages/dashboard' element={"dashboard"}/>
+              <Route path='/pages/dashboard' element={<DashboardPages/>}/>
 
           </Routes>
 
