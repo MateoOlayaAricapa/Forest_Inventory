@@ -1,0 +1,8 @@
+//Mixin that has styles for display flex
+@mixin DisplayFlex($align, $just, $dire, $gap){
+    display: flex;
+    align-items: $align;
+    justify-content: $just;
+    flex-direction: $dire;
+    gap: $gap;
+}
