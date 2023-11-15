@@ -1,0 +1,8 @@
+@import "../../../styles/DisplayFlexSASS/displayFlex";
+@import "../../../styles/GeneralStylesSASS/generalStyles";
+@import "../../../styles/settingSASS/setting";
+
+.panelFirstQuestion{
+    width: 100%;
+    @include DisplayFlex(center, center, column, 0);
+}
