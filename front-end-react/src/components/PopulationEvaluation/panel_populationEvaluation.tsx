@@ -37,7 +37,7 @@ function PanelPopulationEvaluation(){
                 dataQuestions.map((data, i) => 
                     <li 
                     key={i} 
-                    style={{backgroundColor: buttonSelect === i ? "#F0F0F0" : "transparent"}}
+                    style={{backgroundColor: buttonSelect === i ? "#00A05F" : "transparent"}}
                     onClick={() => {setButtonSelect(i); HandleChangeButton(data.ref)}}
                     >
                         {data.name}

@@ -13,3 +13,16 @@ export type typeContext = {
 export type typeDataContextProvider = {
     children: ReactNode;
 };
+
+export type typeSelectYears = {
+    startYear: string,
+    endYear: string
+}
+
+export interface typeBarGraphics {
+    data: {
+        state: string, 
+        total_evaluations: number, 
+        evaluations: string
+    }[];
+}
