@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import burgerMenuReducer from "../FeaturesRedux/burgerMenuSlice/burgerMenu_slice";
 import populationEvaluationReducer from "../FeaturesRedux/panelPopulationEvaluationSlice/populationEvaluation_slice";
+import modalReducer from "../FeaturesRedux/ModalSlice/modal_slice";
 
 //Creating store for redux
 export const store = configureStore({
     reducer: {
         burgerMenu: burgerMenuReducer,
-        populationEvaluationQuestions: populationEvaluationReducer
+        populationEvaluationQuestions: populationEvaluationReducer,
+        Modals: modalReducer
     }
 });
 

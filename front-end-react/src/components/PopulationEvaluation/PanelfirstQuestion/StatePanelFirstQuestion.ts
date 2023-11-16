@@ -1,6 +1,10 @@
 import {useState} from "react";
 import { typeSelectYears } from "../../../TypeTypeScript/type";
 
+//Redux
+import {useDispatch} from "react-redux";
+import { openSaveQueryModal } from "../../../FeaturesRedux/ModalSlice/modal_slice";
+
 //Functión that initial states of the component
 export const InitialStatePanelFirstQuestion = () => {
 
@@ -30,11 +34,15 @@ export const InitialStatePanelFirstQuestion = () => {
         {value: "2011", label: "2011"}
     ];
 
+    //Redux
+    const dispatch = useDispatch();
+
     return {
         listYears,
         selectYears,
         setSelectYears,
-        dataTest
+        dataTest,
+        dispatch
     }
     
 }
@@ -42,7 +50,16 @@ export const InitialStatePanelFirstQuestion = () => {
 //Function that is executed when the button is pressed
 export const HandleChangeButton = (
     refButton: string,
-    selectYears: typeSelectYears
+    selectYears: typeSelectYears,
+    dispatch: Function
 ) => {
-    console.log(selectYears)
+    
+    switch(refButton){
+        case "consult":
+            break;
+
+        case "save":
+            dispatch(openSaveQueryModal());
+            break;
+    }//end switch
 }

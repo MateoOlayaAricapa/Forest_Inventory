@@ -16,7 +16,8 @@ function PanelFirsQuestion(){
         listYears,
         selectYears,
         setSelectYears,
-        dataTest
+        dataTest,
+        dispatch
     } = InitialStatePanelFirstQuestion();
 
     return (<div className="panelFirstQuestion">
@@ -98,10 +99,10 @@ function PanelFirsQuestion(){
                         }
                     }}
                 />
-                <button onClick={() => HandleChangeButton("consult", selectYears)}>
+                <button onClick={() => HandleChangeButton("consult", selectYears, dispatch)}>
                     Consult
                 </button>
-                <button onClick={() => HandleChangeButton("save", selectYears)}>
+                <button onClick={() => HandleChangeButton("save", selectYears, dispatch)}>
                     Save Query
                 </button>
 

@@ -6,6 +6,7 @@ import {
 
 //Importing components
 import PanelFirsQuestion from "./PanelfirstQuestion/panel_firstQuestion";
+import SaveQueryModal from "../Modals/saveQueryModal/saveQuery_moda";
 
 //Component panel population evaluation
 function PanelPopulationEvaluation(){
@@ -16,7 +17,8 @@ function PanelPopulationEvaluation(){
         setButtonSelect,
         dataQuestions,
         valuesPanelQuestion,
-        dispatch
+        dispatch,
+        valuesModals
     } = InitialStatePanelPopulationEvaluation();
 
     return (<div className="panelPopulationEvaluation">
@@ -52,6 +54,14 @@ function PanelPopulationEvaluation(){
         <div className="panelPopulationEvaluation__panelsQuestions">
             {valuesPanelQuestion[0] && <PanelFirsQuestion/>}
         </div>
+        
+        {valuesModals[0] && (
+        
+            <div className="panelPopulationEvaluation__modals">
+                {valuesModals[1] && <SaveQueryModal/>}
+            </div>
+
+        )}
 
     </div>);
 }//End component

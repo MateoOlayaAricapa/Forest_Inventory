@@ -3,6 +3,7 @@
 @import "../../styles/settingSASS/setting";
 
 .panelPopulationEvaluation{
+    position: relative;
     width: 100%;
     height: 54em;
     overflow-y: scroll;
@@ -66,5 +67,18 @@
     &__panelsQuestions{
         width: 100%;
         @include DisplayFlex(center, center, none, 0);
+    }
+
+    &__modals{
+        width: 100%;
+        height: calc(100% + 33vh);
+        background: rgba(0, 0, 0, 0.33);
+        backdrop-filter: blur(2px);
+        padding: 2em;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include DisplayFlex(flex-start, center, none, 0);
     }
 }
