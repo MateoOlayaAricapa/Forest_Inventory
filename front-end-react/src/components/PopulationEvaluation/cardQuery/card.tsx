@@ -9,6 +9,12 @@ import iconPhotoTest from "../../../multimedia/Photo.png";
 import iconOpen from "../../../multimedia/open.png";
 
 function Card(){
+
+    //Importing states and data
+    const {
+        dispatch
+    } = InitialStateCard();
+
     return (<div className="card">
 
         <div className="card__username">
@@ -34,13 +40,13 @@ function Card(){
         <div className="card__buttonsOptions">
             <button 
             className="card__buttonsOptions__open"
-            onClick={() => HandleChangeButtonOption("open")}>
+            onClick={() => HandleChangeButtonOption("open", dispatch)}>
                 <img src={iconOpen} alt="" />
             </button>
 
             <button 
             className="card__buttonsOptions__consult"
-            onClick={() => HandleChangeButtonOption("consult")}>
+            onClick={() => HandleChangeButtonOption("consult", dispatch)}>
                 Consult
             </button>
         </div>

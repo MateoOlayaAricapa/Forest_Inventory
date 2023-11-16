@@ -1,35 +1,33 @@
 import { useDispatch } from "react-redux";
-import { 
-    openInformationQueryModal 
-} from "../../../FeaturesRedux/ModalSlice/modal_slice";
+import { closeModals } from "../../../FeaturesRedux/ModalSlice/modal_slice";
 
 //Functión that initial states of the component
-export const InitialStateCard = () => {
+export const InitialStateInformationQueryModal = () => {
+
+    const list = [1, 2, 3, 4];
 
     //Redux
     const dispatch = useDispatch();
 
-    //Returning values
+    //Returnin values
     return {
+        list,
         dispatch
     }
 
 }
 
 //Function that is executed when the button is pressed
-export const HandleChangeButtonOption = (
+export const HandleChangeButton = (
     refButton: string,
     dispatch: Function
 ) => {
 
     switch(refButton){
 
-        case "open":
-            dispatch(openInformationQueryModal());
+        case "close":
+            dispatch(closeModals());
             break;
-
-        case "consult":
-            break
 
     }//End switch
 
