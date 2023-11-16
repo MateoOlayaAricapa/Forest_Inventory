@@ -7,6 +7,7 @@ import {
 //Importing components
 import PanelFirsQuestion from "./PanelfirstQuestion/panel_firstQuestion";
 import SaveQueryModal from "../Modals/saveQueryModal/saveQuery_moda";
+import InformationQueryModal from "../Modals/InformationQueryModal/information_queryModal";
 
 //Component panel population evaluation
 function PanelPopulationEvaluation(){
@@ -59,6 +60,7 @@ function PanelPopulationEvaluation(){
         
             <div className="panelPopulationEvaluation__modals">
                 {valuesModals[1] && <SaveQueryModal/>}
+                {valuesModals[2] && <InformationQueryModal/>}
             </div>
 
         )}

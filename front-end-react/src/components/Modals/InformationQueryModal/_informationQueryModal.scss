@@ -1,0 +1,185 @@
+@import "../../../styles/DisplayFlexSASS/displayFlex";
+@import "../../../styles/GeneralStylesSASS/generalStyles";
+@import "../../../styles/settingSASS/setting";
+
+.informationQueryModal{
+    width: 60%;
+    padding: 1em;
+    box-sizing: border-box;
+    background-color: $WhiteColor;
+    border-radius: 10px;
+    @include DisplayFlex(center, flex-start, column, 1em);
+
+    &__title{
+        width: 100%;
+        padding: 1em 1em 2em 1em;
+        box-sizing: border-box;
+        border-bottom: 1px solid $LightGrayColor;
+        @include DisplayFlex(center, flex-start, none, 1em);
+
+        &__image{
+            width: 3.563em;
+            height: 3.563em;
+            border-radius: 5px;
+            border: 1px solid $GreenColor;
+            @include DisplayFlex(center, center, none, 0);
+
+            img{
+                width: 60%;
+                object-fit: cover;
+            }
+        }
+
+        &__information{
+            @include DisplayFlex(flex-start, center, column, 0);
+
+            h1{
+                @include StyleText(1.25em, 600, $BlackColor);
+            }
+
+            p{
+                @include StyleText(0.813em, 400, $BlackColor);
+                
+                span{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    &__description{
+        width: 100%;
+        padding: 1em;
+        box-sizing: border-box;
+        @include DisplayFlex(flex-start, center, column, 0.5em);
+
+        h1{
+            @include StyleText(1.125em, 500, $BlackColor);
+        }
+
+        p{
+            @include StyleText(0.875em, 400, $BlackColor);
+        }
+    }
+
+    &__sectionComments{
+        width: 100%;
+        padding: 0em 1em 1em 1em;
+        box-sizing: border-box;
+        @include DisplayFlex(flex-start, center, column, 0.5em);
+
+        h1{
+            @include StyleText(1.125em, 500, $BlackColor);
+        }
+
+        &__comments{
+            width: 100%;
+            height: 15em;
+            padding: 0.5em;
+            overflow-y: scroll;
+            box-sizing: border-box;
+            @include DisplayFlex(flex-start, flex-start, column, 1em);
+
+            &::-webkit-scrollbar {
+                width: 0.5em; 
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                background-color: $GreenColor; 
+                border-radius: 6px; 
+            }
+            
+            &::-webkit-scrollbar-track {
+                background-color: #f0f0f0;
+                border-radius: 6px; 
+            }
+
+            &__container{
+                width: 100%;
+                @include DisplayFlex(flex-start, center, column, 0.5em);
+
+                &__title{
+                    width: 100%;
+                    @include DisplayFlex(center, flex-start, none, 0.5em);
+
+                    h1{
+                        @include StyleText(0.938em, 700, $GreenColor);
+                    }
+
+                    h2{
+                        @include StyleText(0.875em, 600, $BlackColor);
+                    }
+                }
+
+                &__content{
+                    width: 100%;
+                    @include DisplayFlex(center, flex-start, none, 0);
+
+                    p{
+                        @include StyleText(0.875em, 400, $BlackColor);
+                    }
+                }
+            }
+        }
+
+    }
+
+    &__inputComment{
+        width: 100%;
+        padding: 0em 1em 1em 1em;
+        box-sizing: border-box;
+        border-bottom: 1px solid $LightGrayColor;
+        @include DisplayFlex(flex-start, center, column, 1em);
+
+        &__textarea{
+            width: 100%;
+            height: 7.313em;
+            border-radius: 5px;
+            border: 1px solid $LightGrayColor;
+            @include DisplayFlex(center, center, none, 0);
+
+            textarea{
+                width: 95%;
+                height: 80%;
+                outline: none;
+                border: none;
+                resize: none;
+                @include StyleText(0.813em, 400, $BlackColor);
+            }
+        }
+
+        button{
+            @include StyleButton(
+                10.438em,
+                2.813em,
+                10px,
+                $GreenColor,
+                0.938em,
+                500,
+                $WhiteColor,
+                0
+            );
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    &__button{
+        width: 100%;
+        padding: 1em;
+        box-sizing: border-box;
+        @include DisplayFlex(center, center, none, 0);
+
+        button{
+            @include StyleButton(
+                10.438em,
+                2.813em,
+                10px,
+                $GreenColor,
+                0.938em,
+                500,
+                $WhiteColor,
+                0
+            );
+        }
+    }
+}

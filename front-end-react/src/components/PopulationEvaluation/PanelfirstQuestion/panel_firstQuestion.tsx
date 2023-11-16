@@ -137,7 +137,6 @@ function PanelFirsQuestion(){
 
             <div className="panelFirstQuestion__tableQueries__cards">
                 <Card/>
-    
             </div>
 
         </div>
