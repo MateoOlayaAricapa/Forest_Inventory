@@ -4,6 +4,10 @@ import { DataContextProvider } from './contextAPI/context'; //Import context API
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+//Redux
+import { store } from './StoreRedux/store';
+import { Provider } from 'react-redux';
+
 //Importing pages components
 import HomePage from './pages/HomaPage/home_page';
 import DashboardPages from './pages/Dashboard/dashboard_pages'; 
@@ -14,19 +18,20 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    
-    <BrowserRouter>
-      <DataContextProvider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <DataContextProvider>
 
-          <Routes>
+            <Routes>
 
-              <Route path='/' element={<HomePage/>}/>
-              <Route path='/pages/dashboard' element={<DashboardPages/>}/>
+                <Route path='/' element={<HomePage/>}/>
+                <Route path='/pages/dashboard' element={<DashboardPages/>}/>
 
-          </Routes>
+            </Routes>
 
-      </DataContextProvider>
-    </BrowserRouter>
+        </DataContextProvider>
+      </BrowserRouter>
+    </Provider>
 
   </React.StrictMode>
 );

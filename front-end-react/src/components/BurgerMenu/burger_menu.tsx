@@ -14,7 +14,9 @@ function BurgerMenu(){
     //Importing states and data
     const {
         dataOptionsAnalitics,
-        dataOptionsFeatures
+        dataOptionsFeatures,
+        dispatch,
+        navegation
     } = InitialStateBurgerMenu();
 
     return (<div className="burgerMenu">
@@ -30,7 +32,7 @@ function BurgerMenu(){
 
             <ul>
                 {dataOptionsAnalitics.map((data, i) => 
-                    <li key={i} onClick={() => HandleChangeButtonOption(data.ref)}>
+                    <li key={i} onClick={() => HandleChangeButtonOption(data.ref, dispatch, navegation)}>
                         <img src={data.img} alt="" />
                         {data.name}
                     </li>)
@@ -43,7 +45,7 @@ function BurgerMenu(){
 
             <ul>
                 {dataOptionsFeatures.map((data, i) => 
-                    <li key={i} onClick={() => HandleChangeButtonOption(data.ref)}>
+                    <li key={i} onClick={() => HandleChangeButtonOption(data.ref, dispatch, navegation)}>
                         <img src={data.img} alt="" />
                         {data.name}
                     </li>)
@@ -53,7 +55,7 @@ function BurgerMenu(){
         </div>
 
         <div className="burgerMenu__buttonLogOut">
-            <button onClick={() => HandleChangeButtonOption("logOut")}>
+            <button onClick={() => HandleChangeButtonOption("logOut", dispatch, navegation)}>
                 <img src={iconLogOut} alt="" />
                 Log out
             </button>

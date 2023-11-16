@@ -1,3 +1,10 @@
+import {useDispatch} from "react-redux";
+import { useNavigate } from "react-router";
+import { 
+    openPopulationOptionPanel,
+    openAnotherOptionPanel 
+} from "../../FeaturesRedux/burgerMenuSlice/burgerMenu_slice"; 
+
 //Importing content multimedia
 import iconStates from "../../multimedia/States.png";
 import iconTest from "../../multimedia/other.png";
@@ -15,19 +22,36 @@ export const InitialStateBurgerMenu = () => {
         {img: iconTest, name: "Another", ref: "another"}
     ]
 
+    const dispatch = useDispatch();
+    const navegation = useNavigate();
+
     //Return values
     return {
         dataOptionsAnalitics,
-        dataOptionsFeatures
+        dataOptionsFeatures,
+        dispatch,
+        navegation
     }
 
 }
 
 //Function that is executes when a burger menu button is pressed
 export const HandleChangeButtonOption = (
-    refButtonOption: string
+    refButtonOption: string,
+    dispatch: Function,
+    navegation: Function
 ) => {
 
-    console.log(refButtonOption);
+    switch(refButtonOption){
+        case "population":
+            dispatch(openPopulationOptionPanel());
+            break;
+        case "another":
+            dispatch(openAnotherOptionPanel());
+            break;
+        case "logOut":
+            navegation("/");
+            break;
+    }//End switch
 
 }
