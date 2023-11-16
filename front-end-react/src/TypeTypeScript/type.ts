@@ -26,3 +26,11 @@ export interface typeBarGraphics {
         evaluations: string
     }[];
 }
+
+export type typeDataNewQuery = {
+    userName: string,
+    nameQuery: string,
+    description: string,
+    deleteat: false,
+    endPoint: string
+}

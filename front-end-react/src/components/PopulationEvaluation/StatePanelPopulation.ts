@@ -17,6 +17,8 @@ export const InitialStatePanelPopulationEvaluation = () => {
         (state: RootState) => state.populationEvaluationQuestions.isSelectQuestion
     );
 
+    const valuesModals = useSelector((state: RootState) => state.Modals.isOpenModal);
+
     const dispatch = useDispatch();
 
     //data of each question button
@@ -31,7 +33,8 @@ export const InitialStatePanelPopulationEvaluation = () => {
         setButtonSelect,
         dataQuestions,
         valuesPanelQuestion,
-        dispatch
+        dispatch,
+        valuesModals
     }
 
 }
