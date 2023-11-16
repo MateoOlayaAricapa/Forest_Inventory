@@ -13,7 +13,7 @@ const BarGraphics: React.FC<typeBarGraphics> = ({data}) => {
         const chartNode = GraphicRef.current;
 
         // Configuración del tamaño del gráfico
-        const width = 600;
+        const width = 800;
         const height = 400;
         const marginTop = 30;
         const marginRight = 20;

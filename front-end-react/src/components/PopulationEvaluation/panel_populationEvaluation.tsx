@@ -15,6 +15,8 @@ function PanelPopulationEvaluation(){
         buttonSelect,
         setButtonSelect,
         dataQuestions,
+        valuesPanelQuestion,
+        dispatch
     } = InitialStatePanelPopulationEvaluation();
 
     return (<div className="panelPopulationEvaluation">
@@ -38,7 +40,7 @@ function PanelPopulationEvaluation(){
                     <li 
                     key={i} 
                     style={{backgroundColor: buttonSelect === i ? "#00A05F" : "transparent"}}
-                    onClick={() => {setButtonSelect(i); HandleChangeButton(data.ref)}}
+                    onClick={() => {setButtonSelect(i); HandleChangeButton(data.ref, dispatch)}}
                     >
                         {data.name}
                     </li>)
@@ -48,7 +50,7 @@ function PanelPopulationEvaluation(){
         </div>
 
         <div className="panelPopulationEvaluation__panelsQuestions">
-            <PanelFirsQuestion/>
+            {valuesPanelQuestion[0] && <PanelFirsQuestion/>}
         </div>
 
     </div>);

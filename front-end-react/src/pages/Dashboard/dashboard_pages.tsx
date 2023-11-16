@@ -16,7 +16,8 @@ function DashboardPages(){
 
     //Importing states and data
     const {
-        userName
+        userName,
+        valuesBurgerMenu
     } = InitialStateDashboardPages();
 
     return (<div className="dashboardPages">
@@ -40,7 +41,7 @@ function DashboardPages(){
                 </div>
 
                 <div className="dashboardPages__mainContainer__infoSection__panelOptions">
-                    <PanelPopulationEvaluation/>
+                    {valuesBurgerMenu[0] && <PanelPopulationEvaluation/>}
                 </div>
 
             </div>
