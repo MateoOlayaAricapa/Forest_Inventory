@@ -3,16 +3,12 @@ import { typeSelectYears } from "../../../TypeTypeScript/type";
 import { useFetchGET } from "../../../customHook/useFetch";
 import { FetchButtonGetPost } from "../../../customHook/useFetch";
 import { typeDataQueries } from "../../../TypeTypeScript/type";
+import { typeDataGraphics } from "../../../TypeTypeScript/type";
 
 //Redux
 import {useDispatch} from "react-redux";
 import { openSaveQueryModal } from "../../../FeaturesRedux/ModalSlice/modal_slice";
-
-type typeDataGraphics = {
-    state: string, 
-    total_evaluations: number, 
-    evaluations: string
-}
+import { changingValueEndPotin } from "../../../FeaturesRedux/ModalSlice/saveQuery_slice";
 
 //Functión that initial states of the component
 export const InitialStatePanelFirstQuestion = () => {
@@ -122,8 +118,11 @@ export const HandleChangeButton = async (
 
             setIsLoadingGraphics(true);
 
+            //Endpoint query
+            let path = `http://localhost:5000/bigQuery/data/${selectYears.startYear}/${selectYears.endYear}`;
+
             //Getting data of fetch GET
-            const {dataResult} = await fetchDataGET(`http://localhost:5000/bigQuery/data/${selectYears.startYear}/${selectYears.endYear}`);
+            const {dataResult} = await fetchDataGET(path);
 
             if(dataResult.Messages === "not found"){
 
@@ -131,6 +130,7 @@ export const HandleChangeButton = async (
                 alert("Not Found Data. Please, select other years");
 
             }else{
+                dispatch(changingValueEndPotin(path));
                 setIsLoadingGraphics(false);
                 setDataGraphics(dataResult);
             }//End condition

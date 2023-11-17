@@ -147,7 +147,7 @@ function PanelFirsQuestion(){
             <div className="panelFirstQuestion__tableQueries__cards">
                 {
                     isLoading 
-                    ? dataQueries.map((data, i) =>  <Card key={i}/>) 
+                    ? dataQueries.map((data, i) =>  <Card key={i} dataQuery={data} setDataGraphics={setDataGraphics} setIsLoadingGraphics={setIsLoadingGraphics}/>) 
                     : <h1>Sin consultas guardadas</h1>
                 }
             </div>

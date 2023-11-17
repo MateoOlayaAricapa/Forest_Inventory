@@ -43,3 +43,22 @@ export type typeDataQueries = {
     "createat": Date,
     "endpoint": string
 }
+
+export type typeDataGraphics = {
+    state: string, 
+    total_evaluations: number, 
+    evaluations: string
+}
+
+export interface typeDataCard {
+    dataQuery: {
+        id_query: number, 
+        creator_username: string, 
+        name_query: string,
+        description: string,
+        createat: Date,
+        endpoint: string
+    },
+    setDataGraphics: Dispatch<SetStateAction<typeDataGraphics[]>>,
+    setIsLoadingGraphics: Dispatch<SetStateAction<boolean>>,
+}
