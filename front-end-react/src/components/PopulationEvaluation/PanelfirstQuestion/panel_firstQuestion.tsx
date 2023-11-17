@@ -16,8 +16,14 @@ function PanelFirsQuestion(){
         listYears,
         selectYears,
         setSelectYears,
-        dataTest,
-        dispatch
+        dispatch,
+        dataQueries,
+        isLoading,
+        fetchDataGET,
+        dataGraphics,
+        setDataGraphics,
+        isLoadingGraphic,
+        setIsLoadingGraphics
     } = InitialStatePanelFirstQuestion();
 
     return (<div className="panelFirstQuestion">
@@ -68,7 +74,7 @@ function PanelFirsQuestion(){
                 <h2>End year</h2>
                 <Select
                     options={listYears}
-                    defaultValue={listYears[0]}
+                    defaultValue={listYears[3]}
                     onChange={(selectOption) => {
 
                         if(selectOption){
@@ -99,17 +105,20 @@ function PanelFirsQuestion(){
                         }
                     }}
                 />
-                <button onClick={() => HandleChangeButton("consult", selectYears, dispatch)}>
+                <button 
+                onClick={() => HandleChangeButton("consult", selectYears, dispatch, fetchDataGET, setDataGraphics, setIsLoadingGraphics)}>
                     Consult
                 </button>
-                <button onClick={() => HandleChangeButton("save", selectYears, dispatch)}>
+                <button 
+                onClick={() => HandleChangeButton("save", selectYears, dispatch, fetchDataGET, setDataGraphics, setIsLoadingGraphics)}>
                     Save Query
                 </button>
 
             </div>
 
             <div className="panelFirstQuestion__visualQueryBuilder__graphics">
-                <BarGraphics data={dataTest}/>
+                <h4 style={{display: isLoadingGraphic ? "inline" : "none"}}>Loading...</h4>
+                <BarGraphics data={dataGraphics}/>
             </div>
 
             <div className="panelFirstQuestion__visualQueryBuilder__explanationData">
@@ -136,7 +145,11 @@ function PanelFirsQuestion(){
             </div>
 
             <div className="panelFirstQuestion__tableQueries__cards">
-                <Card/>
+                {
+                    isLoading 
+                    ? dataQueries.map((data, i) =>  <Card key={i}/>) 
+                    : <h1>Sin consultas guardadas</h1>
+                }
             </div>
 
         </div>

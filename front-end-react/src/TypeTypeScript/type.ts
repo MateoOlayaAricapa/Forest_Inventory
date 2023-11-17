@@ -34,3 +34,12 @@ export type typeDataNewQuery = {
     deleteat: false,
     endPoint: string
 }
+
+export type typeDataQueries = {
+    "id_query": number, 
+    "creator_username": string, 
+    "name_query": string,
+    "description": string,
+    "createat": Date,
+    "endpoint": string
+}
