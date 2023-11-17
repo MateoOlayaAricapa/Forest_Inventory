@@ -36,12 +36,12 @@ export type typeDataNewQuery = {
 }
 
 export type typeDataQueries = {
-    "id_query": number, 
-    "creator_username": string, 
-    "name_query": string,
-    "description": string,
-    "createat": Date,
-    "endpoint": string
+    id_query: number, 
+    creator_username: string, 
+    name_query: string,
+    description: string,
+    createat: Date,
+    endpoint: string
 }
 
 export type typeDataGraphics = {
@@ -61,4 +61,12 @@ export interface typeDataCard {
     },
     setDataGraphics: Dispatch<SetStateAction<typeDataGraphics[]>>,
     setIsLoadingGraphics: Dispatch<SetStateAction<boolean>>,
+}
+
+export type typeDataComments = {
+    id_comment: number,
+    id_query: number,
+    username: string,
+    content: string,
+    create_at: Date
 }

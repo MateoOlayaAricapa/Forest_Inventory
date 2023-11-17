@@ -15,7 +15,7 @@ function SaveQueryModal(){
         dataNewQuery,
         setDataNewQuery,
         dispatch,
-        fetchDataPOST
+        fetchDataPOST,
     } = InitialStateSaveQueryModal();
 
     return (<div className="saveQueryModal">

@@ -1,24 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 type typeInitialState = {
-    enpointSaveQuery: string;
+    enpointSaveQuery: string,
 }
 
 const initialState: typeInitialState = {
-    enpointSaveQuery: ""
+    enpointSaveQuery: "",
 }
 
 export const SaveQuerySlice = createSlice({
     name: "modalSlice",
     initialState,
     reducers: {
-        changingValueEndPotin: (state, action) => {
+        changingValueEndPoint: (state, action) => {
             state.enpointSaveQuery = action.payload 
-        }
+        },
     }
 });
 
 export const {
-    changingValueEndPotin
+    changingValueEndPoint,
 } = SaveQuerySlice.actions;
 export default SaveQuerySlice.reducer;

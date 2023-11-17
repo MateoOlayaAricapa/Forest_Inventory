@@ -29,7 +29,7 @@ def save_new_comment():
         db.session.commit() #Saving changes
 
         #Return results
-        return jsonify({"Messages": "saved data", "id": new_comment.id_comment}), 200
+        return jsonify({"Messages": "saved data", "id": new_comment.id_comment, "date": new_comment.create_at}), 200
 
     except Exception as ex:
         print("Erro: " + str(ex))

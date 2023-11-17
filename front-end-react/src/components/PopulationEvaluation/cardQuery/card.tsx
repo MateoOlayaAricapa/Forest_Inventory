@@ -38,13 +38,13 @@ function Card({dataQuery, setDataGraphics, setIsLoadingGraphics}: typeDataCard){
         <div className="card__buttonsOptions">
             <button 
             className="card__buttonsOptions__open"
-            onClick={() => HandleChangeButtonOption("open", dispatch, setDataGraphics, fetchDataGET, dataQuery.endpoint, setIsLoadingGraphics)}>
+            onClick={() => HandleChangeButtonOption("open", dispatch, setDataGraphics, fetchDataGET, dataQuery, setIsLoadingGraphics)}>
                 <img src={iconOpen} alt="" />
             </button>
 
             <button 
             className="card__buttonsOptions__consult"
-            onClick={() => HandleChangeButtonOption("consult", dispatch, setDataGraphics, fetchDataGET, dataQuery.endpoint, setIsLoadingGraphics)}>
+            onClick={() => HandleChangeButtonOption("consult", dispatch, setDataGraphics, fetchDataGET, dataQuery, setIsLoadingGraphics)}>
                 Consult
             </button>
         </div>

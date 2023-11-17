@@ -8,7 +8,7 @@ import { typeDataGraphics } from "../../../TypeTypeScript/type";
 //Redux
 import {useDispatch} from "react-redux";
 import { openSaveQueryModal } from "../../../FeaturesRedux/ModalSlice/modal_slice";
-import { changingValueEndPotin } from "../../../FeaturesRedux/ModalSlice/saveQuery_slice";
+import { changingValueEndPoint } from "../../../FeaturesRedux/ModalSlice/saveQuery_slice";
 
 //Functión that initial states of the component
 export const InitialStatePanelFirstQuestion = () => {
@@ -98,7 +98,8 @@ export const InitialStatePanelFirstQuestion = () => {
         dataGraphics,
         setDataGraphics,
         isLoadingGraphic,
-        setIsLoadingGraphics
+        setIsLoadingGraphics,
+        setDataQueries
     }
     
 }
@@ -111,6 +112,7 @@ export const HandleChangeButton = async (
     fetchDataGET: Function,
     setDataGraphics: Dispatch<SetStateAction<typeDataGraphics[]>>,
     setIsLoadingGraphics: Dispatch<SetStateAction<boolean>>,
+    setDataQueries: Dispatch<SetStateAction<typeDataQueries[]>>,
 ) => {
     
     switch(refButton){
@@ -130,7 +132,7 @@ export const HandleChangeButton = async (
                 alert("Not Found Data. Please, select other years");
 
             }else{
-                dispatch(changingValueEndPotin(path));
+                dispatch(changingValueEndPoint(path));
                 setIsLoadingGraphics(false);
                 setDataGraphics(dataResult);
             }//End condition

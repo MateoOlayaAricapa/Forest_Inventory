@@ -1,9 +1,12 @@
 import {useDispatch} from "react-redux";
 import { useNavigate } from "react-router";
+
+//Redux
 import { 
     openPopulationOptionPanel,
     openAnotherOptionPanel 
-} from "../../FeaturesRedux/burgerMenuSlice/burgerMenu_slice"; 
+} from "../../FeaturesRedux/burgerMenuSlice/burgerMenu_slice";
+import { closeModals } from "../../FeaturesRedux/ModalSlice/modal_slice"; 
 
 //Importing content multimedia
 import iconStates from "../../multimedia/States.png";
@@ -22,6 +25,7 @@ export const InitialStateBurgerMenu = () => {
         {img: iconTest, name: "Another", ref: "another"}
     ]
 
+    //Redux
     const dispatch = useDispatch();
     const navegation = useNavigate();
 
@@ -50,6 +54,7 @@ export const HandleChangeButtonOption = (
             dispatch(openAnotherOptionPanel());
             break;
         case "logOut":
+            dispatch(closeModals());
             navegation("/");
             break;
     }//End switch

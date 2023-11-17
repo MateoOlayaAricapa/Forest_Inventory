@@ -15,10 +15,11 @@ export const InitialStateSaveQueryModal = () => {
     //Getting username of context api
     const {userName} = useContext(userNameContext);
 
+    //Data endpoint
     const valueEndPoint = useSelector((state: RootState) => state.saveQuery.enpointSaveQuery);
 
-    console.log(valueEndPoint);
-
+    console.log(valueEndPoint)
+ 
     //variable that represents new data query
     const [dataNewQuery, setDataNewQuery] = useState<typeDataNewQuery>({
         userName: userName,
@@ -37,7 +38,7 @@ export const InitialStateSaveQueryModal = () => {
         dataNewQuery,
         setDataNewQuery,
         dispatch,
-        fetchDataPOST
+        fetchDataPOST,
     }
 
 }
@@ -47,7 +48,7 @@ export const HandleChangeButton = async(
     refButton: string,
     dataNewQuery: typeDataNewQuery,
     dispatch: Function,
-    fetchDataPOST: Function
+    fetchDataPOST: Function,
 ) => {
 
     switch(refButton){
@@ -57,8 +58,11 @@ export const HandleChangeButton = async(
             const {dataResults} = await fetchDataPOST("http://localhost:5000/query/save", dataNewQuery);
 
             if(dataResults.Messages === "saved data"){
+
+               
+
                 dispatch(closeModals());
-                alert("Saved Data")
+                alert("Saved Data");
             }//End condition
 
             break;

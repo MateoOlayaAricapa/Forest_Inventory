@@ -30,7 +30,7 @@ def save_new_query():
         db.session.commit() #Saving changes
 
         #Return results
-        return jsonify({"Messages": "saved data", "id": new_query.id_query}), 200
+        return jsonify({"Messages": "saved data", "id": new_query.id_query, "date": new_query.create_at}), 200
 
     except Exception as ex:
         print("Error: " + str(ex))

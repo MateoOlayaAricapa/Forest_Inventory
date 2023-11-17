@@ -23,7 +23,8 @@ function PanelFirsQuestion(){
         dataGraphics,
         setDataGraphics,
         isLoadingGraphic,
-        setIsLoadingGraphics
+        setIsLoadingGraphics,
+        setDataQueries
     } = InitialStatePanelFirstQuestion();
 
     return (<div className="panelFirstQuestion">
@@ -106,11 +107,11 @@ function PanelFirsQuestion(){
                     }}
                 />
                 <button 
-                onClick={() => HandleChangeButton("consult", selectYears, dispatch, fetchDataGET, setDataGraphics, setIsLoadingGraphics)}>
+                onClick={() => HandleChangeButton("consult", selectYears, dispatch, fetchDataGET, setDataGraphics, setIsLoadingGraphics, setDataQueries)}>
                     Consult
                 </button>
                 <button 
-                onClick={() => HandleChangeButton("save", selectYears, dispatch, fetchDataGET, setDataGraphics, setIsLoadingGraphics)}>
+                onClick={() => HandleChangeButton("save", selectYears, dispatch, fetchDataGET, setDataGraphics, setIsLoadingGraphics, setDataQueries)}>
                     Save Query
                 </button>
 
@@ -123,11 +124,13 @@ function PanelFirsQuestion(){
 
             <div className="panelFirstQuestion__visualQueryBuilder__explanationData">
                 <p>
-                    Is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy 
-                    text ever since the 1500s, when an unknown printer 
-                    took a galley of type and scrambled it to make a 
-                    type specimen book. It has survived
+                    In this data set, you will be able to search 
+                    for the total number of evaluations that 
+                    were carried out to different states during 
+                    two time periods. Additionally, the graph will 
+                    show the name of these states and the evaluations 
+                    received. You can also search in the same year. 
+                    To do this, just put the same year in both fields.
                 </p>
             </div>
 
@@ -146,9 +149,9 @@ function PanelFirsQuestion(){
 
             <div className="panelFirstQuestion__tableQueries__cards">
                 {
-                    isLoading 
+                    isLoading && dataQueries.length > 0
                     ? dataQueries.map((data, i) =>  <Card key={i} dataQuery={data} setDataGraphics={setDataGraphics} setIsLoadingGraphics={setIsLoadingGraphics}/>) 
-                    : <h1>Sin consultas guardadas</h1>
+                    : <h1>No saved queries</h1>
                 }
             </div>
 

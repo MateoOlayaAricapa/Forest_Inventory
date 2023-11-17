@@ -5,6 +5,10 @@ import {
 } from "../../../FeaturesRedux/ModalSlice/modal_slice";
 import { typeDataGraphics } from "../../../TypeTypeScript/type";
 import { FetchButtonGetPost } from "../../../customHook/useFetch";
+import { typeDataQueries } from "../../../TypeTypeScript/type";
+
+//Redux
+import { setChangingValueData } from "../../../FeaturesRedux/ModalSlice/informationQuery_slice";
 
 //Functión that initial states of the component
 export const InitialStateCard = () => {
@@ -29,13 +33,16 @@ export const HandleChangeButtonOption = async (
     dispatch: Function,
     setDataGraphics: Dispatch<SetStateAction<typeDataGraphics[]>>,
     fetchDataGET: Function,
-    endPoint: string,
+    dataQuery: typeDataQueries,
     setIsLoadingGraphics: Dispatch<SetStateAction<boolean>>
 ) => {
 
     switch(refButton){
 
         case "open":
+
+            //Passing data to be used in the information Query modal
+            dispatch(setChangingValueData(dataQuery));
             dispatch(openInformationQueryModal());
             break;
 
@@ -44,7 +51,7 @@ export const HandleChangeButtonOption = async (
             setIsLoadingGraphics(true);
 
             //Getting data of fetch GET
-            const {dataResult} = await fetchDataGET(endPoint);
+            const {dataResult} = await fetchDataGET(dataQuery.endpoint);
 
             if(dataResult.Messages === "not found"){
 
