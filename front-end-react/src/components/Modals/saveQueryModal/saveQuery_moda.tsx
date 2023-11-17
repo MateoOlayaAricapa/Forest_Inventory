@@ -14,7 +14,8 @@ function SaveQueryModal(){
     const {
         dataNewQuery,
         setDataNewQuery,
-        dispatch
+        dispatch,
+        fetchDataPOST,
     } = InitialStateSaveQueryModal();
 
     return (<div className="saveQueryModal">
@@ -61,10 +62,10 @@ function SaveQueryModal(){
         <div className="saveQueryModal__divider"/>
 
         <div className="saveQueryModal__buttons">
-            <button onClick={() => HandleChangeButton("cancel", dataNewQuery, dispatch)}>
+            <button onClick={() => HandleChangeButton("cancel", dataNewQuery, dispatch, fetchDataPOST)}>
                 Cancel
             </button>
-            <button onClick={() => HandleChangeButton("save", dataNewQuery, dispatch)}>
+            <button onClick={() => HandleChangeButton("save", dataNewQuery, dispatch, fetchDataPOST)}>
                 Save
             </button>
         </div>

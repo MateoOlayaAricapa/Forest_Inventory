@@ -16,8 +16,15 @@ function PanelFirsQuestion(){
         listYears,
         selectYears,
         setSelectYears,
-        dataTest,
-        dispatch
+        dispatch,
+        dataQueries,
+        isLoading,
+        fetchDataGET,
+        dataGraphics,
+        setDataGraphics,
+        isLoadingGraphic,
+        setIsLoadingGraphics,
+        setDataQueries
     } = InitialStatePanelFirstQuestion();
 
     return (<div className="panelFirstQuestion">
@@ -68,7 +75,7 @@ function PanelFirsQuestion(){
                 <h2>End year</h2>
                 <Select
                     options={listYears}
-                    defaultValue={listYears[0]}
+                    defaultValue={listYears[3]}
                     onChange={(selectOption) => {
 
                         if(selectOption){
@@ -99,26 +106,31 @@ function PanelFirsQuestion(){
                         }
                     }}
                 />
-                <button onClick={() => HandleChangeButton("consult", selectYears, dispatch)}>
+                <button 
+                onClick={() => HandleChangeButton("consult", selectYears, dispatch, fetchDataGET, setDataGraphics, setIsLoadingGraphics, setDataQueries)}>
                     Consult
                 </button>
-                <button onClick={() => HandleChangeButton("save", selectYears, dispatch)}>
+                <button 
+                onClick={() => HandleChangeButton("save", selectYears, dispatch, fetchDataGET, setDataGraphics, setIsLoadingGraphics, setDataQueries)}>
                     Save Query
                 </button>
 
             </div>
 
             <div className="panelFirstQuestion__visualQueryBuilder__graphics">
-                <BarGraphics data={dataTest}/>
+                <h4 style={{display: isLoadingGraphic ? "inline" : "none"}}>Loading...</h4>
+                <BarGraphics data={dataGraphics}/>
             </div>
 
             <div className="panelFirstQuestion__visualQueryBuilder__explanationData">
                 <p>
-                    Is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy 
-                    text ever since the 1500s, when an unknown printer 
-                    took a galley of type and scrambled it to make a 
-                    type specimen book. It has survived
+                    In this data set, you will be able to search 
+                    for the total number of evaluations that 
+                    were carried out to different states during 
+                    two time periods. Additionally, the graph will 
+                    show the name of these states and the evaluations 
+                    received. You can also search in the same year. 
+                    To do this, just put the same year in both fields.
                 </p>
             </div>
 
@@ -136,7 +148,11 @@ function PanelFirsQuestion(){
             </div>
 
             <div className="panelFirstQuestion__tableQueries__cards">
-                <Card/>
+                {
+                    isLoading && dataQueries.length > 0
+                    ? dataQueries.map((data, i) =>  <Card key={i} dataQuery={data} setDataGraphics={setDataGraphics} setIsLoadingGraphics={setIsLoadingGraphics}/>) 
+                    : <h1>No saved queries</h1>
+                }
             </div>
 
         </div>

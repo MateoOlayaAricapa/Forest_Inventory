@@ -12,6 +12,9 @@ const BarGraphics: React.FC<typeBarGraphics> = ({data}) => {
         // Referencia al nodo del gráfico
         const chartNode = GraphicRef.current;
 
+        //Limpiando gráficas que se generaron anteriormente
+        d3.select(chartNode).selectAll('*').remove();
+
         // Configuración del tamaño del gráfico
         const width = 800;
         const height = 400;

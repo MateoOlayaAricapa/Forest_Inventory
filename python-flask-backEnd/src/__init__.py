@@ -1,11 +1,22 @@
 from flask import Flask #Import flask to environment
 from src.Routers import query_routers, comment_routers, bigQuery_routers #Import routers
 from src.Database.connection_db import init_app  # Import SQLAlchemy instance and init_app function
+from flask_cors import CORS #Import CORS
 
 #--------------------------------------------------------------------------------------------------------
 # Create object app
 #--------------------------------------------------------------------------------------------------------
 app = Flask(__name__)
+
+
+#--------------------------------------------------------------------------------------------------------
+# Configuring CORS
+#--------------------------------------------------------------------------------------------------------
+cors = CORS(app, resources={
+    r"/query/*": {"origins": "http://localhost:3000"},
+    r"/comment/*": {"origins": "http://localhost:3000"},
+    r"/bigQuery/*": {"origins": "http://localhost:3000"}
+})
 
 #--------------------------------------------------------------------------------------------------------
 # Stablishes params for connection with DB

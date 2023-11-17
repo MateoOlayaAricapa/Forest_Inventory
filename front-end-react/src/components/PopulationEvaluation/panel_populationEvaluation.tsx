@@ -27,11 +27,13 @@ function PanelPopulationEvaluation(){
         <div className="panelPopulationEvaluation__information">
             <h1>Population evaluation in the <span>Forest Inventory</span></h1>
             <p>
-                Is simply dummy text of the printing and typesetting 
-                industry. Lorem Ipsum has been the industry's standard 
-                dummy text ever since the 1500s, when an unknown printer 
-                took a galley of type and scrambled it to make a type 
-                specimen book. It has survived
+                This data table describes the evaluation area, 
+                which generally refers to a specific geographic 
+                region, and in most cases, this area is a state. 
+                Its primary purpose is to maintain information 
+                related to assessments conducted in these geographic areas, 
+                which may include forest inventory data, population estimates, 
+                and other details related to forest resource management.
             </p>
         </div>
 

@@ -43,7 +43,15 @@
 
         &__graphics{
             width: 100%;
+            position: relative;
             @include DisplayFlex(center, center, none, 0);
+
+            h4{
+                position: absolute;
+                top: 0;
+                right: 1em;
+                @include StyleText(1.5em, 600, $BlackColor);
+            }
         }
 
         &__explanationData{

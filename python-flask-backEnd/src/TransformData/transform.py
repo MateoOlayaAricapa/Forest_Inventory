@@ -20,12 +20,19 @@ def transform_data_states_evaluation(data):
         totalEvaluation = list(states_totalEvaluation.values) #Converting values that represent each total evaluation into a list
 
         type_evaluations = [] #List that save all type evaluations for each state
+        count_two_points = new_dataset["evaluation_description"].str.count(':') #Counting the (:) that have the data in the column
 
         #for cycle to carry out a process to extract all the evaluations made to each state
         for stateName in states_totalEvaluation.index:
 
             dataset_state = new_dataset[new_dataset["location_name"] == stateName] #Taking out a new dataframe with only the data of a state
-            dataset_state["evaluation_description"] = dataset_state["evaluation_description"].str.split(':').str[2].str.strip() #After the second ":" the evaluations are extracted from the column
+            
+            if count_two_points[0] == 1:
+                dataset_state["evaluation_description"] = dataset_state["evaluation_description"].str.split(':').str[1].str.strip() #After the first ":" the evaluations are extracted from the column
+            
+            elif count_two_points[0] == 2:
+                dataset_state["evaluation_description"] = dataset_state["evaluation_description"].str.split(':').str[2].str.strip() #After the second ":" the evaluations are extracted from the column
+            
             evaluations = dataset_state['evaluation_description'].str.cat(sep=', ') #Concatenated all types of evaluations
             type_evaluations.append(evaluations)
 
