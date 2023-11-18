@@ -14,7 +14,6 @@ function InformationQueryModal(){
         dispatch,
         valueDataQuery,
         dataComments,
-        setDataComments,
         isLoadingComments,
         fetchDataPOST,
         dataNewComment,
@@ -80,14 +79,14 @@ function InformationQueryModal(){
                 <textarea onChange={(e) => setDataNewComment({...dataNewComment, content: e.target.value})}/>
             </div>
 
-            <button onClick={() => HandleChangeButton("postComment", dispatch, fetchDataPOST, dataNewComment, setDataComments)}>
+            <button onClick={() => HandleChangeButton("postComment", dispatch, fetchDataPOST, dataNewComment)}>
                 Post comment
             </button>
 
         </div>
 
         <div className="informationQueryModal__button">
-            <button onClick={() => HandleChangeButton("close", dispatch, fetchDataPOST, dataNewComment, setDataComments)}>
+            <button onClick={() => HandleChangeButton("close", dispatch, fetchDataPOST, dataNewComment)}>
                 Close
             </button>
         </div>

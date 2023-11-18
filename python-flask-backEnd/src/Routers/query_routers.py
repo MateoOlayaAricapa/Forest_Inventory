@@ -1,7 +1,8 @@
-from flask import Flask, Blueprint, jsonify, request #Import flask to environment
-from src.Models.query import Query #Import class from model
-from src.Database.connection_db import db #Import object db that represents the connection
-from datetime import datetime
+from flask import Flask, Blueprint, jsonify, request #Importing flask to environment
+from src.Models.query import Query #Importing class from model
+from src.Database.connection_db import db #Importing object db that represents the connection
+from src.Socket_IO.socket import socketio #Importing object socketio
+from datetime import datetime 
 
 query = Blueprint("query_blueprint", __name__) #Creating object blueprints
 
@@ -28,6 +29,18 @@ def save_new_query():
         
         db.session.add(new_query) #Save data in the DB
         db.session.commit() #Saving changes
+
+        #Organizing data query for socket.io
+        querySocket = {
+            "id_query": new_query.id_query,
+            "creator_username": new_query.creator_username,
+            "name_query": new_query.name_query,
+            "description": new_query.description,
+            "createat": str(new_query.create_at),
+            "endpoint": new_query.endpoint,
+        }
+
+        socketio.emit('save_new_query', querySocket) #Creating event for server to send messages to clients
 
         #Return results
         return jsonify({"Messages": "saved data", "id": new_query.id_query, "date": new_query.create_at}), 200

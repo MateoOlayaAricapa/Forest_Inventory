@@ -14,11 +14,13 @@ export type typeDataContextProvider = {
     children: ReactNode;
 };
 
+//selectYears type for input fields
 export type typeSelectYears = {
     startYear: string,
     endYear: string
 }
 
+//type of data that the bar graph will receive (props)
 export interface typeBarGraphics {
     data: {
         state: string, 
@@ -27,6 +29,7 @@ export interface typeBarGraphics {
     }[];
 }
 
+//data type to create a new query
 export type typeDataNewQuery = {
     userName: string,
     nameQuery: string,
@@ -35,6 +38,7 @@ export type typeDataNewQuery = {
     endPoint: string
 }
 
+//data type for the query data that the query returns
 export type typeDataQueries = {
     id_query: number, 
     creator_username: string, 
@@ -44,12 +48,14 @@ export type typeDataQueries = {
     endpoint: string
 }
 
+//type of data that the bar graph will receive
 export type typeDataGraphics = {
     state: string, 
     total_evaluations: number, 
     evaluations: string
 }
 
+//types of data received by the card that shows the data of a query
 export interface typeDataCard {
     dataQuery: {
         id_query: number, 
@@ -63,6 +69,7 @@ export interface typeDataCard {
     setIsLoadingGraphics: Dispatch<SetStateAction<boolean>>,
 }
 
+//data type for a comment data
 export type typeDataComments = {
     id_comment: number,
     id_query: number,

@@ -1,17 +1,36 @@
 import {useEffect, Dispatch, SetStateAction} from "react";
+import {io}  from 'socket.io-client';
 
-//
+//Function that applies a useEffect (GET) to query data when the component is mounted
 export const useFetchGET = <T>(
     url: string,
     setLoading: Dispatch<SetStateAction<boolean>>,
-    setData: Dispatch<SetStateAction<T>>
+    setData: Dispatch<SetStateAction<T[]>>
 ) => {
 
     useEffect(() => {
 
+        const socket = io('http://localhost:5000');
+
         async function PetitionAPI(){
 
             try {
+
+                //Receiving data from the server when saving a query
+                socket.on('save_new_query', (data: T) => {
+                    
+                    //Saving new data in the list dataQueries
+                    setData(prevData => [...prevData, data]);
+
+                });
+
+                //Receiving data from the server when saving a comment
+                socket.on('save_new_comment', (data: T) => {
+                    
+                    //Saving new data in the list dataComments
+                    setData(prevData => [...prevData, data]);
+
+                });
         
                 const result = await fetch(url);
                 const dataResult = await result.json();
@@ -30,11 +49,15 @@ export const useFetchGET = <T>(
 
         PetitionAPI();
 
+        return () => {
+            socket.disconnect();
+        };
+
     }, [url]);
 
 }
 
-//
+//Functions that execute fetch GET or POST when a button is pressed in the application
 export const FetchButtonGetPost = <T,>() => {
 
     const fetchDataPOST = async (url: string, dataPost: T) => {
