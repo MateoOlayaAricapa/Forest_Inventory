@@ -1,4 +1,4 @@
-import {useContext, Dispatch, SetStateAction} from "react";
+import { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { closeModals } from "../../../FeaturesRedux/ModalSlice/modal_slice";
 import { useFetchGET } from "../../../customHook/useFetch";
@@ -9,7 +9,7 @@ import { typeDataComments } from "../../../TypeTypeScript/type";
 import { userNameContext } from "../../../contextAPI/context";
 
 //Redux
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../../StoreRedux/store";
 import { useState } from "react";
 
@@ -55,7 +55,6 @@ export const InitialStateInformationQueryModal = () => {
         dispatch,
         valueDataQuery,
         dataComments,
-        setDataComments,
         isLoadingComments,
         fetchDataPOST,
         dataNewComment,
@@ -70,7 +69,6 @@ export const HandleChangeButton = async(
     dispatch: Function,
     fetchDataPOST: Function,
     dataNewComment: typeDataNewComment,
-    setDataComments: Dispatch<SetStateAction<typeDataComments[]>>
 ) => {
 
     switch(refButton){
@@ -88,26 +86,9 @@ export const HandleChangeButton = async(
 
                 if(dataResults.Messages === "saved data"){
 
-                    //Organizing data
-                    const data = {
-                        id_comment: dataResults.id,
-                        id_query: dataNewComment.id_query,
-                        username: dataNewComment.username,
-                        content: dataNewComment.content,
-                        create_at: dataResults.date
-                    }
-                    
-                    //Adding in comments list
-                    setDataComments((prevData: typeDataComments[]) => {
-                        
-                        if (!Array.isArray(prevData)) {
-                            return [];
-                        }//End condition
-                    
-                        return [...prevData, data];
-                    });
+                    alert("saved comment");
 
-                }//end condition
+                }//End condition
 
             }else{
 

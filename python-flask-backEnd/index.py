@@ -1,6 +1,8 @@
 from src import app #Import app
 from src.Database.connection_db import db #Import object db that represents to the connection
+from src.Socket_IO.socket import socketio
 from decouple import config #Package for environment variables
+from flask_socketio import SocketIO
 
 with app.app_context():
     db.create_all()
@@ -9,4 +11,4 @@ with app.app_context():
 #Running the server
 #--------------------------------------------------------------------------------------------------------
 if __name__ == '__main__':
-    app.run(debug=True, port=config('MY_PORT_SERVER'))
+    socketio.run(app, debug=True, port=config('MY_PORT_SERVER'))

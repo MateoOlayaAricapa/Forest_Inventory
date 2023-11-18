@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, jsonify, request #Import flask to environment
 from src.Models.comment import Comment #Import class from model
 from src.Database.connection_db import db #Import object db that represents the connection
+from src.Socket_IO.socket import socketio #Importing object socketio
 from datetime import datetime
 
 comment = Blueprint("comment_blueprint", __name__) #Creating object blueprints
@@ -27,6 +28,17 @@ def save_new_comment():
 
         db.session.add(new_comment) #Save data in the DB
         db.session.commit() #Saving changes
+
+        #Organizing data comment for socket.io
+        commentSocket = {
+            "id_comment": new_comment.id_comment,
+            "id_query": new_comment.id_query,
+            "username": new_comment.username,
+            "content": new_comment.content,
+            "create_at": str(new_comment.create_at)
+        }
+
+        socketio.emit('save_new_comment', commentSocket) #Creating event for server to send messages to clients
 
         #Return results
         return jsonify({"Messages": "saved data", "id": new_comment.id_comment, "date": new_comment.create_at}), 200

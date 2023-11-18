@@ -4,7 +4,7 @@ from decouple import config #Package for environment variables
 db = SQLAlchemy()
 
 #--------------------------------------------------------------------------------------------------------
-# function that stablishes the connection with DB
+# Function that stablishes the connection with DB
 # It's used SQLAlchemy for that connection
 #--------------------------------------------------------------------------------------------------------
 def init_app(app):

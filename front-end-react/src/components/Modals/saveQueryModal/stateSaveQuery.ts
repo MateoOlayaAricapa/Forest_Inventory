@@ -59,10 +59,9 @@ export const HandleChangeButton = async(
 
             if(dataResults.Messages === "saved data"){
 
-               
-
                 dispatch(closeModals());
                 alert("Saved Data");
+
             }//End condition
 
             break;
