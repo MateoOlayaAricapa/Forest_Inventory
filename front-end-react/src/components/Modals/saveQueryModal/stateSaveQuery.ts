@@ -2,6 +2,7 @@ import {useState, useContext} from "react";
 import { typeDataNewQuery } from "../../../TypeTypeScript/type";
 import { userNameContext } from "../../../contextAPI/context";
 import { FetchButtonGetPost } from "../../../customHook/useFetch";
+import { URI_BACKEND } from "../../../uriQueries/uri_queries";
 
 //Redux
 import {useDispatch} from "react-redux";
@@ -55,7 +56,7 @@ export const HandleChangeButton = async(
         case "save":
 
             //Getting results POST
-            const {dataResults} = await fetchDataPOST("http://localhost:5000/query/save", dataNewQuery);
+            const {dataResults} = await fetchDataPOST(`http://${URI_BACKEND}/query/save`, dataNewQuery);
 
             if(dataResults.Messages === "saved data"){
 

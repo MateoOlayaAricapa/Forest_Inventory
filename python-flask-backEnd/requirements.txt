@@ -1,0 +1,10 @@
+Flask
+Flask-SQLAlchemy
+psycopg2
+virtualenv
+python-dotenv
+python-decouple
+google-cloud-bigquery
+pandas
+flask-cors
+flask-socketio

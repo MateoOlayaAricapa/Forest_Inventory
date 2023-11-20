@@ -1,8 +1,7 @@
 from src import app #Import app
 from src.Database.connection_db import db #Import object db that represents to the connection
-from src.Socket_IO.socket import socketio
+from src.Socket_IO.socket import socketio #Importing object socketio
 from decouple import config #Package for environment variables
-from flask_socketio import SocketIO
 
 with app.app_context():
     db.create_all()

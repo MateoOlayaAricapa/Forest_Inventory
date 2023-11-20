@@ -9,13 +9,13 @@ const BarGraphics: React.FC<typeBarGraphics> = ({data}) => {
 
     useEffect(() => {
 
-        // Referencia al nodo del gráfico
+        // Reference to the graph node
         const chartNode = GraphicRef.current;
 
-        //Limpiando gráficas que se generaron anteriormente
+        // Cleaning graphs that were previously generated
         d3.select(chartNode).selectAll('*').remove();
 
-        // Configuración del tamaño del gráfico
+        // Chart Size Settings
         const width = 800;
         const height = 400;
         const marginTop = 30;
@@ -23,29 +23,29 @@ const BarGraphics: React.FC<typeBarGraphics> = ({data}) => {
         const marginBottom = 80;
         const marginLeft = 40;
 
-        // Crear la escala x para los estados
+        // Create the x scale for the states
         const xScale = d3
         .scaleBand()
         .domain(data.map((d) => d.state))
         .range([marginLeft, width - marginRight])
         .padding(0.1);
 
-        // Crear la escala y para la cantidad de ciudadanos
+        // Create the scale y for the number of citizens
         const yScale = d3
             .scaleLinear()
             .domain([0, d3.max(data, (d) => d.total_evaluations) || 0])
             .range([height - marginBottom, marginTop]);
 
-         // Crear una escala de colores basada en el dominio de los estados
+         // Create a color scale based on the domain of the states
         const colorScale = d3.scaleOrdinal(d3.schemeCategory10).domain(data.map((d) => d.state));
         
-        // Crear el contenedor SVG
+        // Create the SVG container
         const svg = d3
             .select(chartNode)
             .attr('width', width)
             .attr('height', height);
 
-        // Agregar barras al gráfico
+        // Add bars to the chart
         svg
             .selectAll('rect')
             .data(data)
@@ -57,7 +57,7 @@ const BarGraphics: React.FC<typeBarGraphics> = ({data}) => {
             .attr('width', xScale.bandwidth())
             .attr('fill', (d) => colorScale(d.state))
 
-        // Agregar ejes al gráfico
+        // Add axes to the chart
         svg
             .append('g')
             .attr('transform', `translate(0,${height - marginBottom})`)
@@ -78,6 +78,7 @@ const BarGraphics: React.FC<typeBarGraphics> = ({data}) => {
 
     }, [data]);
 
+    //Returning values
     return <svg ref={GraphicRef}></svg>;
 
 }

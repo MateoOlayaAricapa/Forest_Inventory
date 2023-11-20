@@ -18,11 +18,7 @@ init_socket(app)
 #--------------------------------------------------------------------------------------------------------
 # Configuring CORS
 #--------------------------------------------------------------------------------------------------------
-cors = CORS(app, resources={
-    r"/query/*": {"origins": "http://localhost:3000"},
-    r"/comment/*": {"origins": "http://localhost:3000"},
-    r"/bigQuery/*": {"origins": "http://localhost:3000"}
-})
+cors = CORS(app, resources={r"/*":{"origins":"*"}})
 
 #--------------------------------------------------------------------------------------------------------
 # Stablishes params for connection with DB

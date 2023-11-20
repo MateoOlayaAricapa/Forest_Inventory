@@ -1,5 +1,6 @@
 import {useEffect, Dispatch, SetStateAction} from "react";
 import {io}  from 'socket.io-client';
+import { URI_BACKEND } from "../uriQueries/uri_queries";
 
 //Function that applies a useEffect (GET) to query data when the component is mounted
 export const useFetchGET = <T>(
@@ -10,7 +11,7 @@ export const useFetchGET = <T>(
 
     useEffect(() => {
 
-        const socket = io('http://localhost:5000');
+        const socket = io(`http://${URI_BACKEND}`);
 
         async function PetitionAPI(){
 
@@ -20,7 +21,19 @@ export const useFetchGET = <T>(
                 socket.on('save_new_query', (data: T) => {
                     
                     //Saving new data in the list dataQueries
-                    setData(prevData => [...prevData, data]);
+                    setData(prevData => {
+
+                        if (Array.isArray(prevData)) {
+                            
+                            return [...prevData, data];
+                        
+                        } else {
+                           
+                            return [data];
+                        
+                        }//End condition
+
+                    });
 
                 });
 
@@ -28,7 +41,19 @@ export const useFetchGET = <T>(
                 socket.on('save_new_comment', (data: T) => {
                     
                     //Saving new data in the list dataComments
-                    setData(prevData => [...prevData, data]);
+                    setData(prevData => {
+
+                        if (Array.isArray(prevData)) {
+                            
+                            return [...prevData, data];
+                        
+                        } else {
+                           
+                            return [data];
+                        
+                        }//End condition
+
+                    });
 
                 });
         

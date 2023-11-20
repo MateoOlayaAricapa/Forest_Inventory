@@ -1,1 +1,1 @@
-# Forest_Inventory
+# Reads the markdown file named "USERGUIDE.md".
