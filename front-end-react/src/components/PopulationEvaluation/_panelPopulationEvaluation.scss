@@ -44,7 +44,9 @@
     }
 
     &__questionsQueries{
-        background-color: $LightGrayColor;
+        background-color: $WhiteColor;
+        border: 1px solid $ColorStroke;
+        box-shadow: 0px 0px 4px 0px rgba(211, 211, 211, 0.25);
         border-radius: 10px;
         @include DisplayFlex(center, flex-start, none, 0);
 

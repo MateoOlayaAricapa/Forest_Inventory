@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  #Container that holds the database
+  postgresBD:
+    image: postgres:15
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=ForestInventory
+  #Container for the back end
+  backend:
+    #Path indicating where the dockerfile created for the back end is located
+    build: python-flask-backEnd/.
+    ports:
+      - "5000:5000"
+    #Indicating that this container will use the container where the database is
+    depends_on:
+      - postgresBD
+  #Container for the front end
+  frontend:
+    #Path indicating where the dockerfile created for the front end is located
+    build: front-end-react/.
+    ports:
+      - "9000:3000"
+    #Indicating that this container will use the back end container
+    depends_on:
+      - backend

@@ -4,6 +4,7 @@ import { closeModals } from "../../../FeaturesRedux/ModalSlice/modal_slice";
 import { useFetchGET } from "../../../customHook/useFetch";
 import { FetchButtonGetPost } from "../../../customHook/useFetch";
 import { typeDataComments } from "../../../TypeTypeScript/type";
+import { URI_BACKEND } from "../../../uriQueries/uri_queries";
 
 //Context API
 import { userNameContext } from "../../../contextAPI/context";
@@ -31,7 +32,7 @@ export const InitialStateInformationQueryModal = () => {
     const [isLoadingComments, setIsLoadingComments] = useState<boolean>(false);
 
     //Applying fetch to get all comments
-    useFetchGET(`http://localhost:5000/comment/data/comments/${valueDataQuery.id_query}`, setIsLoadingComments, setDataComments);
+    useFetchGET(`http://${URI_BACKEND}/comment/data/comments/${valueDataQuery.id_query}`, setIsLoadingComments, setDataComments);
 
     //Importing username of context api
     const {userName} = useContext(userNameContext);
@@ -82,7 +83,7 @@ export const HandleChangeButton = async(
             if(dataNewComment.content !== ""){
                 
                 //Saving comment and getting results
-                const {dataResults} = await fetchDataPOST("http://localhost:5000/comment/save", dataNewComment);
+                const {dataResults} = await fetchDataPOST(`http://${URI_BACKEND}/comment/save`, dataNewComment);
 
                 if(dataResults.Messages === "saved data"){
 

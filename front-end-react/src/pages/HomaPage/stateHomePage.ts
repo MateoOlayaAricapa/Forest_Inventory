@@ -45,9 +45,16 @@ export const HandleChangeButton = (
 
     }else{
 
-        setUserNameContext(userNameLogin); //Updating userName in context API
-        setErrorMessage(false); //Hidden message
-        navigate("/pages/dashboard"); //Changing pages
+        try {
+            
+            setUserNameContext(userNameLogin); //Updating userName in context API
+            localStorage.setItem("nameUser", userNameLogin); //Saving data to the user's device
+            setErrorMessage(false); //Hidden message
+            navigate("/pages/dashboard"); //Changing pages
+            
+        } catch (error) {
+            console.error(`Error localStorage: [${error}]`);
+        }//En catch
 
     }//End condition
 
