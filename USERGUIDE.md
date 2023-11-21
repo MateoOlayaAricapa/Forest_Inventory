@@ -139,3 +139,8 @@ RUN pip install -r requirements.txt
 COPY . .
 EXPOSE 5000
 CMD ["flask", "run"]
+``` 
+
+# Video:
+
+Check the following explanatory video: https://youtu.be/KWWzp8gDyw0 
